@@ -12,7 +12,7 @@ class ExcelsiorTest < Test::Unit::TestCase
     expected = [[1,2,3],[4,5,6]]
     i = 0;
     Excelsior::Reader.rows(File.open('data/test.tsv','rb'),"\t") do |row|
-      assert_equal expected[i], rowg
+      assert_equal expected[i], row
       i += 1
     end
     assert_equal expected.length, i
