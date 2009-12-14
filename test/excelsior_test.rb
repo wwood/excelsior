@@ -9,10 +9,11 @@ require 'excelsior'
 
 class ExcelsiorTest < Test::Unit::TestCase
   def test_tsv
-    expected = [[1,2,3],[1,2,3]]
+    expected = [[1,2,3],[4,5,6]]
     i = 0;
-    Excelsior::Reader.rows(File.open('data/test.tsv','rb'),"\t") do |rows|
-      assert_equal expected[i], rows
+    Excelsior::Reader.rows(File.open('data/test.tsv','rb'),"\t") do |row|
+      assert_equal expected[i], rowg
+      i += 1
     end
     assert_equal expected.length, i
   end
